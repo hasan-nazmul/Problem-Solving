@@ -83,9 +83,12 @@ inline ll modPow(ll b, ll p) { ll r = 1; while(p) { if(p&1) r = modMul(r, b); b 
 inline ll modInverse(ll a) { return modPow(a, eps-2); }
 inline ll modDiv(ll a, ll b) { return modMul(a, modInverse(b)); }
 
-bool CHECK(ll N,ll pos) { return (bool)(N&(1<<pos)); }
+bool CHECK(ll N,ll pos) { return (bool)(N&(1LL<<pos)); }
 
-unsigned ll SET(ll N,ll pos) { return (N|(1<<pos)); }
+unsigned ll SET(ll N,ll pos) { return (N|(1LL<<pos)); }
+
+// returns least significant bit of x
+unsigned ll LSB(ll x)   { return x & -x; }
 
 int doublecmp(double a, double b)
 {
@@ -125,6 +128,9 @@ struct state
    state(){}
    state(int i, int j) : i(i), j(j) {}
 };
+
+int dx[] = { +1, -1, 0, 0 };
+int dy[] = { 0, 0, +1, -1 };
 
 void solve()
 {

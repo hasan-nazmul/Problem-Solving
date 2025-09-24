@@ -126,9 +126,67 @@ struct state
    state(int i, int j) : i(i), j(j) {}
 };
 
+const int mx_sz = 1000;
+
+int edges, values[2];
+
+vector <int> adj_list[mx_sz], color;
+vector <bool> visited;
+
+void dfs(int source, int value)
+{
+    if(visited[source])
+        return;
+
+    visited[source] = 1;
+    color[source] = value;
+    values[value]++;
+
+    for(auto i : adj_list[source])
+    {
+        dfs(i, value^1);
+    }
+
+    return;
+}
+
 void solve()
 {
+    cin >> edges;
+
+    for(int i=0; i < mx_sz; i++)
+        adj_list[i].clear();
+
+    color.clear();
+
+    color.resize(mx_sz);
+
+    visited.clear();
+
+    visited.resize(mx_sz);
     
+    for(int i = 0; i < edges; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        adj_list[u].push_back(v);
+        adj_list[v].push_back(u);
+    }
+
+    ll sum = 0;
+
+    for(int i = 1; i <= 4; i++)
+    {
+        if(!visited[i]) 
+        {    
+            values[0] = values[1] = 0;
+            dfs(i, 0);
+            cout << values[0] << sp << values[1] << nl;
+            sum += max(values[0], values[1]);
+        }
+    }
+
+    cout << sum << nl;
 }
 
 int main()
