@@ -59,12 +59,12 @@ public:
                 
                 while (!st.empty()) {
                     int current = st.top();
+                    visited[current] = true;
                     st.pop();
                     cout << current << " ";
                     
                     for (auto it = adjList[current].rbegin(); it != adjList[current].rend(); ++it) {
                         if (!visited[*it]) {
-                            visited[*it] = true;
                             st.push(*it);
                         }
                     }
