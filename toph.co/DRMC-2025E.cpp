@@ -144,8 +144,9 @@ void solve()
     
     
     cin >> n >> s;
-    ll pre_sum[26][n+5];
-    memset(pre_sum, 0, sizeof(pre_sum));
+    
+    // FIX: Initialize pre_sum properly to avoid uninitialized memory access
+    vector<vector<ll>> pre_sum(26, vector<ll>(n+5, 0));
     
     for(auto &i : del)
         cin >> i;
@@ -169,15 +170,26 @@ void solve()
 
         for(char ch = 'z'; ch >= 'a'; ch--)
         {
-            if(sz(first_appr[ch-'a'])==0)   continue;
+            // FIX: Check if deque is empty before accessing front()
+            if(first_appr[ch-'a'].empty())   continue;
 
             ll fapp = first_appr[ch-'a'].front();
+
+            // FIX: Ensure fapp is within valid range
+            if(fapp <= pos || fapp > n) continue;
 
             bool f = 1;
 
             for(char c = ch-1; c >= 'a'; c--)
             {
-                if(pre_sum[c-'a'][fapp]-pre_sum[c-'a'][pos] > del[c-'a'])
+                // FIX: Check bounds for pre_sum access
+                if(fapp > n || pos > n) {
+                    f = 0;
+                    break;
+                }
+                
+                ll current_count = pre_sum[c-'a'][fapp] - pre_sum[c-'a'][pos];
+                if(current_count > del[c-'a'])
                 {
                     f = 0;
                     break;
@@ -188,13 +200,23 @@ void solve()
             {
                 for(char c = ch-1; c >= 'a'; c--)
                 {
-                    del[c-'a'] -= (pre_sum[c-'a'][fapp]-pre_sum[c-'a'][pos]);
-                    while(sz(first_appr[c-'a']) and first_appr[c-'a'].front()<fapp)
+                    // FIX: Check bounds before calculation
+                    if(fapp <= n && pos <= n) {
+                        del[c-'a'] -= (pre_sum[c-'a'][fapp] - pre_sum[c-'a'][pos]);
+                    }
+                    
+                    // FIX: Safe deque popping - only pop while not empty and condition met
+                    while(!first_appr[c-'a'].empty() && first_appr[c-'a'].front() < fapp)
                     {
                         first_appr[c-'a'].pop_front();
                     }
                 }
-                first_appr[ch-'a'].pop_front();
+                
+                // FIX: Safe deque popping
+                if(!first_appr[ch-'a'].empty()) {
+                    first_appr[ch-'a'].pop_front();
+                }
+                
                 pos = fapp;
                 ans.push_back(ch);
                 fl = 1;
