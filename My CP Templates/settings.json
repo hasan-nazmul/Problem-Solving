@@ -1,0 +1,112 @@
+{
+  "editor.fontSize": 13,
+  "files.autoSave": "off",
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "terminal.integrated.fontSize": 15,
+  "emmet.triggerExpansionOnTab": true,
+  "editor.minimap.enabled": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.cursorBlinking": "expand",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "highlight-matching-tag.styles": {
+    "opening": {
+      "left": {
+        "custom": {
+          "borderWidth": "0 0 0 1px",
+          "borderStyle": "solid",
+          "borderColor": "yellow",
+          "borderRadius": "5px"
+        }
+      },
+      "right": {
+        "custom": {
+          "borderWidth": "0 1px 0 0",
+          "borderStyle": "solid",
+          "borderColor": "yellow",
+          "borderRadius": "5px"
+        }
+      }
+    }
+  },
+  "markdown-preview-enhanced.previewTheme": "moonlight",
+  "git.enableSmartCommit": true,
+  "markdown.preview.fontSize": 16,
+  "editor.guides.bracketPairs": true,
+  "window.zoomLevel": 1.5,
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.presets.foldersAllDefaultIcon": true,
+  "editor.fontFamily": "JetBrains mono, Consolas, 'Courier New', monospace",
+  "json.schemas": [],
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "database-client.autoSync": true,
+  "files.associations": {
+    "*.html": "html",
+    "*.tsx": "typescriptreact"
+  },
+  "editor.linkedEditing": true,
+  "git.autofetch": true,
+  "[cpp]": {
+    "editor.wordBasedSuggestions": "off",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.stickyScroll.defaultModel": "foldingProviderModel",
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "workbench.sideBar.location": "right",
+  "C_Cpp.default.compilerPath": "C:/Program Files/CodeBlocks/MinGW/bin/g++.exe",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "cpp": false,
+    "csv": false,
+    "python": true,
+    "properties": true,
+    "php": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "grunt.autoDetect": "on",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": {
+        "id": "terminal-cmd"
+      }
+    },
+    "Git Bash": {
+      "source": "Git Bash",
+      "icon": "terminal-git-bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\WINDOWS\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.defaultProfile.linux": "",
+  "github.copilot.nextEditSuggestions.eagerness": "high",
+  "workbench.settings.applyToAllProfiles": [
+    
+  ]
+}
